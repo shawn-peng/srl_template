@@ -1,0 +1,18 @@
+
+//Parameters
+setParam: maxTreeDepth=3.
+setParam: nodeSize=2.
+setParam: numOfClauses=5.
+
+//Modes
+//mode: pfam(+gene_id,#domain).
+
+//Bridgers
+//bridger: ppi/2.
+
+//usePrologVariables: true
+//precompute:
+//higher_expr_level(Geneid, Region, Period, Level) :- expr_level(Geneid, Region, Period, L), expr_level(_, _, _, Level), L >= Level.
+
+//disc: taxableincome([2], [2]).
+
