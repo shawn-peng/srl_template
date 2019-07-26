@@ -1,5 +1,3 @@
-TARGETS=iris_setosa,iris_virginica,iris_versicolor
-#TARGETS=iris_setosa
-#TARGETS=iris_virginica
-#TARGETS=iris_versicolor
-NUMTREES=4
+TARGETS=gdb
+NUMTREES=10
+SUFFIX=4

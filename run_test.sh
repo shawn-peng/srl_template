@@ -2,5 +2,5 @@
 
 . conf
 
-java -jar BoostSRL.jar -i -model train/models -test test/ -target $TARGETS -trees $NUMTREES
+java -jar BoostSRL.jar -i -test test/ -model train/model_${SUFFIX} -target $TARGETS -trees $NUMTREES -modelSuffix $SUFFIX > log/test${SUFFIX}.log 2>&1 &
 
