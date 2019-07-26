@@ -5,11 +5,13 @@ import argparse
 import random
 
 parser = argparse.ArgumentParser()
-parser.add_argument('fold', type=int, help='the number of the fold')
+parser.add_argument('n', type=int, help='number of folds')
+parser.add_argument('fold', type=int, help='the index of the fold')
 
 args = parser.parse_args()
+nfolds = args.n
 fold = args.fold
-print(fold)
+print(nfolds, fold)
 
 pos_file = open('pos.txt')
 pos = []
@@ -32,8 +34,8 @@ random.seed(42)
 random.shuffle(pos)
 random.shuffle(neg)
 
-test_pos_size = npos / 10
-test_neg_size = nneg / 10
+test_pos_size = npos / nfolds
+test_neg_size = nneg / nfolds
 
 test_pos_start = fold * test_pos_size
 test_neg_start = fold * test_neg_size
