@@ -2,28 +2,24 @@
 
 import re
 
-resfile = 'test/results_autism_gene.db'
+resfile = 'test/results_ann.db'
 resfile = open(resfile)
 
 predfile = 'pred_results.txt'
 predfile = open(predfile, 'w')
 
-regex = re.compile('.*\((.*)\)')
+regex = re.compile('.*\((.*)\) ([0-9.]*)')
 
 for res in resfile:
-	row = res.split()
-	flag = (row[0][0] == '!')
-	value = float(row[1])
-
-	if flag:
-		#continue
-		score = 1-value
-	else:
-		score = value
-	
-	protid = regex.match(row[0]).group(1)
-	# print(protid, score)
-	predfile.write("%s\t%f\n" % (protid, score))
+    args = regex.match(res).group(1)
+    score = regex.match(res).group(2)
+    score = float(score)
+    flag = (res[0] == '!')
+    if flag:
+        #continue
+        score = 1-score
+    # print(protid, score)
+    predfile.write("%d\t%f\n" % (not flag, score))
 
 
 
